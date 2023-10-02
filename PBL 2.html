@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<style type="text/css">
+table {
+    border-collapse: collapse;
+    width: device-width;
+	margin: 10px auto;
+	}
+table, th, td {
+    border: 1px solid black;
+	}
+th, td {
+    text-align: center;
+	}
+  button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+	}
+img {
+  height: 328px;
+  width: 250px;
+  transition: transform 0.5s ease-in-out; /* Add a smooth transition effect */
+  }
+img:hover {
+	  transform: scale(1.5);
+	  }
+</style>
+</head>
+<body>
+<div id="CanonEvent">
+  <table id="Chloe">
+  <thead>
+	<tr>
+		<th id="Dice1">LO 1</th>
+		<th id="Dice2">LO 2</th>
+		<th id="Dice3">LO 3</th>
+		<th id="Dice4">LO 4</th>
+		<th id="Dice5">LO 5</th>
+	</tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><div><img id="Die1" alt="Random Image"></div></td>
+  <td><img id="Die2" alt="Random Image"></td>
+  <td><img id="Die3" alt="Random Image"></td>
+  <td><img id="Die4" alt="Random Image"></td>
+  <td><img id="Die5" alt="Random Image"></td>
+  </tr>
+  </tbody>
+  <thead>
+  <tr>
+  <th id="Dice6">LO 6</th>
+  <th id="Dice7">LO 7</th>
+  <th id="Dice8">LO 8</th>
+  <th id="Dice9">LO 9</th>
+  <th id="Dice10">LO 10</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td><img id="Die6" alt="Random Image"></td>
+  <td><img id="Die7" alt="Random Image"></td>
+  <td><img id="Die8" alt="Random Image"></td>
+  <td><img id="Die9" alt="Random Image"></td>
+  <td><img id="Die10" alt="Random Image"></td>
+  </tr>
+  </tbody>
+  </table>
+  <button id="LifeResetButton" onclick="Pochi()">Reroll</button>
+  </div>
+  <div>
+  	<input type="number" value="10">
+  </div>
+  <!-- for (let i = 1; i <= 8; i++) {
+  const randomNumber = Math.floor(Math.random() * (MaxValue - MinValue + 1)) + MinValue;
+  OR  const randomNumber = Math.floor(Math.random() * Data.length);
+  document.getElementById("Die" + i).textContent = randomNumber;
+  }
+  }-->
+  <script>
+  const ImgUrls = ['CardImg/Tao.png','CardImg/Jin.png','CardImg/Sar.png',
+  'CardImg/Gan.png','CardImg/Cat.png','CardImg/Bar.jpeg','CardImg/Col.jpeg',
+  'CardImg/Dio.png','CardImg/Yoi.jpeg','CardImg/Suc.jpeg'];
+  function Pochi() {
+  	const usedNumber = [];
+  	while (ImgUrls.length > usedNumber.length) {
+		const randomNumber = Math.floor(Math.random() * ImgUrls.length);
+  		if (usedNumber.includes(ImgUrls[randomNumber])) {
+  			continue;
+  		}
+		usedNumber.push(ImgUrls[randomNumber]);
+		document.getElementById("Die" + usedNumber.length).src = ImgUrls[randomNumber];
+  	}
+ }
+</script>
+<script type="text/javascript"></script>
+</body>
+</html>
